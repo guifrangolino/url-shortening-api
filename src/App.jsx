@@ -65,7 +65,7 @@ function App() {
     navigator.clipboard.writeText(event.target.parentElement.firstChild.textContent)
     event.target.classList.add('copied')
     event.target.innerHTML = 'Copied!'
-    toast.success("Link Copied!");
+    toast.success("Link Copied to Clipboard!");
   }
 
   return (
