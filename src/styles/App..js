@@ -197,7 +197,7 @@ export const Button = styled.button`
   transition: all .2s;
   font-size: 14px;
 
-  &:hover {
+  &:hover, &:active {
     opacity: .7;
   }
 
@@ -352,7 +352,7 @@ export const Statistics = styled.section`
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      padding: 45px 0;
+      padding: 0 0 45px 0;
       text-align: center;
 
       h2 {
@@ -392,6 +392,7 @@ export const ShortenForm = styled.form`
   gap: 10px;
   position: relative;
   top: -70px;
+  margin-bottom: 13px;
 
   @media (max-width: 1050px) {
     padding: 35px 20px;
@@ -459,6 +460,17 @@ export const ShortenForm = styled.form`
     }
   }
 
+  .clear {
+    background: ${cor5};
+    font-size: 14px;
+    padding: 5px 15px;
+    height: 30px;
+    position: absolute;
+    bottom: -35px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
 `
 
 export const ShortLinkContainer = styled.div`
@@ -471,6 +483,7 @@ export const ShortLinkContainer = styled.div`
   margin-bottom: 15px;
   position: relative;
   top: -40px;
+  animation: ${entranceAnim} .5s ease 0s 1 normal forwards;
   
   @media (max-width: 890px) {
     flex-direction: column;
@@ -523,13 +536,27 @@ export const Cards = styled.div`
   justify-content: space-evenly;
   margin-bottom: 100px;
   margin-top: 50px;
+  position: relative;
+  
+  .stripe {
+    width: 66%;
+    height: 10px;
+    background: ${cor1};
+    position: absolute;
+    top: 145px;
+    z-index: 1;
+  }
 
   @media (max-width: 1240px) {
     flex-direction: column;
     align-items: center;
     gap: 60px;
+
+    .stripe {
+      height: 66%;
+      width: 10px;
+    }
   }
-  
 `
 
 export const Card = styled.div`
@@ -540,20 +567,21 @@ export const Card = styled.div`
   padding: 15px 30px 25px 30px;
   border-radius: 5px;
   box-shadow: #00000020 0px 0px 5px 1px;
+  z-index: 2;
 
   &:nth-child(2) {
     margin-top: 45px;
-
-    @media (max-width: 1240px) {
-      margin: 0;
-    }
   }
 
   &:nth-child(3) {
     margin-top: 90px;
+  }
 
-    @media (max-width: 1240px) {
-      margin: 0;
+  @media (max-width: 1240px) {
+    text-align: center;
+
+    &:nth-child(2), &:nth-child(3) {
+      margin-top: 25px;
     }
   }
 
@@ -567,6 +595,11 @@ export const Card = styled.div`
     align-items: center;
     position: relative;
     top: -55px;
+
+    @media (max-width: 1240px) {
+      left: 50%;
+      transform: translateX(-50%);
+    }
   }
 
   h3 {
@@ -709,9 +742,9 @@ export const Footer = styled.footer`
         gap: 25px;
       }
       
-      a img:hover {
+      a img:hover, a img:active {
         transition: all .3s;
-        filter: invert(0%) sepia(59%) saturate(6585%) hue-rotate(125deg) brightness(86%) contrast(85%);
+        opacity: .7;
       }
     }
 

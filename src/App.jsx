@@ -21,6 +21,11 @@ function App() {
   }, [originalLink])
   
   useEffect(() => {
+
+    if (localStorage.linksList) {
+      setShortLinksList(JSON.parse(localStorage.linksList))
+    }
+
     const newLink = {
       full: originalLink,
       short: shortLink,
@@ -28,9 +33,16 @@ function App() {
   
     if (newLink.full !== '') {
       setShortLinksList([...shortLinksList, newLink])
+      setOriginalLink('')
     }
 
   }, [shortLink])
+
+  useEffect(() => {
+    if (shortLinksList.length > 0) {
+      localStorage.setItem('linksList', JSON.stringify(shortLinksList))
+    }
+  }, [shortLinksList])
 
   function handleClickMenuBtn() {
     setMenuOpen(current => !current)
@@ -110,15 +122,12 @@ function App() {
           <ShortenForm>
             <div><input type="text" placeholder="Shorten a link here..." onChange={() => console.log()} ref={inputRef} /></div>
             <Button type="submit" onClick={handleSubmit}>Shorten It!</Button>
+            <Button className="clear" onClick={(e) => {
+              e.preventDefault()
+              localStorage.removeItem('linksList')
+              setShortLinksList([])
+            }}>Clear</Button>
           </ShortenForm>
-
-          {/* <ShortLinkContainer>
-            <span>{originalLink}</span>
-            <div className="short-link">
-              <span>{shortLink}</span>
-              <Button>Copy</Button>
-            </div>
-          </ShortLinkContainer> */}
           
           {shortLinksList.map((link, index) => {
             return (
@@ -156,6 +165,7 @@ function App() {
               <h3>Fully Customizable</h3>
               <p>Improve brand awareness and content discoverability through customizable links, supercharging audience engagement.</p>
             </Card>
+            <span className="stripe"></span>
 
           </Cards>
         </div>
