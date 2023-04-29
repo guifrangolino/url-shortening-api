@@ -211,6 +211,7 @@ function App() {
             <a href="/"><img src="/images/icon-instagram.svg" alt="Instagram Icon" /></a>
           </div>
         </div>
+        <span><a href="https://github.com/guifrangolino/" target="_blank" rel="noreferrer">Guilherme Souza</a> &copy; 2023</span>
       </Footer>
 
     </Container>

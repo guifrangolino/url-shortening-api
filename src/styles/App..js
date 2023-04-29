@@ -197,10 +197,16 @@ export const Button = styled.button`
   transition: all .2s;
   font-size: 14px;
 
-  &:hover, &:active {
+  &:active {
     opacity: .7;
   }
 
+  @media (hover: hover){
+    &:hover{
+      opacity: .7;
+    }
+  }
+  
   &.login {
     background: none;
     color: ${cor5};
@@ -674,6 +680,17 @@ export const BoostLink = styled.section`
 export const Footer = styled.footer`
   background: ${cor7};
 
+  &>span {
+    text-align: center;
+    color: ${cor4};
+    margin: auto;
+    display: block;
+
+    a {
+      color: ${cor4};
+    }
+  }
+
   .footer-container {
     max-width: 1440px;
     width: 100%;
@@ -724,8 +741,14 @@ export const Footer = styled.footer`
             text-decoration: none;
             transition: all .3s;
 
-            &:hover {
+            &:active {
               color: ${cor1};
+            }
+
+            @media (hover: hover){
+              &:hover{
+                color: ${cor1};
+              }
             }
           }
         }
@@ -745,6 +768,13 @@ export const Footer = styled.footer`
       a img:hover, a img:active {
         transition: all .3s;
         opacity: .7;
+      }
+      
+      @media (hover: hover){
+        a img:hover{
+          transition: all .3s;
+          opacity: .7;
+        }
       }
     }
 
