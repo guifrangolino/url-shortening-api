@@ -122,7 +122,7 @@ export const Header = styled.header`
 
   @media (max-width: 890px) {
     justify-content: space-between;
-    padding: 20px 40px;
+    padding: 20px;
     position: relative;
 
     nav {
@@ -160,7 +160,7 @@ export const Header = styled.header`
         top: 90px;
         z-index: 1;
         width: 90%;
-        height: 40vh;
+        height: 290px;
         left: 50%;
         transform: translateX(-50%);
         border-radius: 10px;
@@ -223,6 +223,10 @@ export const Presentation = styled.section`
     display: flex;
     align-items: center;
     justify-content: center;
+
+    @media (max-width: 450px) {
+      padding: 0 20px 110px 20px;
+    }
 
     .content {
     
@@ -339,6 +343,10 @@ export const Statistics = styled.section`
     margin: auto;
     padding: 0 40px;
 
+    @media (max-width: 890px) {
+      padding: 0 20px;
+    }
+
     .statistics-title {
       display: flex;
       flex-direction: column;
@@ -350,12 +358,20 @@ export const Statistics = styled.section`
       h2 {
         font-size: 36px;
         color: ${cor6};
+
+        @media (max-width: 530px) {
+          font-size: 24px;
+        }
       }
 
       p {
         max-width: 470px;
         width: 100%;
         color: ${cor5};
+
+        @media (max-width: 530px) {
+          font-size: 14px;
+        }
       }
     }
 
